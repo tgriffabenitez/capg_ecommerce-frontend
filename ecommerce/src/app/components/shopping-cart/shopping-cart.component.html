@@ -1,32 +1,12 @@
 <div class="wrap cf">
 	<div class="heading cf">
-		<h1>My Cart</h1>
-		<a href="#" class="continue">Continue Shopping</a>
+		<h1>Mi carrito</h1>
+		<a href="#" class="continue">Continuar comprando</a>
 	</div>
-	
-	<div class="cart">
-		<ul class="cartWrap">
-			<li class="items odd">
-	  			<div class="infoWrap"> 
-		  			<div class="cartSection">
-		  				<img src="https://dehoynopasa.com.ar/wp-content/uploads/Negra-768x768.jpg" alt="" class="itemImg" style="height: 100px;"/>
-						<p class="itemNumber">#QUE-007544-002</p>
-						<h3>Remera Negra 1</h3>
-			 			<p> <input type="text"  class="qty" placeholder="1"/> x $5.00</p>
-						<p class="stockStatus"> In Stock</p>
-		  			</div>  
-	
-					<div class="prodTotal cartSection">
-						<p>$15.00</p>
-		  			</div>
 
-					<div class="cartSection removeWrap">
-			 			<a href="#" class="remove">x</a>
-		  			</div>
-				</div>
-			</li>
-	  	</ul>
-	</div>
+	<li class="list-group-item" *ngFor="let i of [1,2,3,4,5]">
+		<app-cart-item></app-cart-item>
+	</li>
 	
 	<div class="subtotal cf">
 		<ul>
