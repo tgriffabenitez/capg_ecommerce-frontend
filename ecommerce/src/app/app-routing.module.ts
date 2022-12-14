@@ -5,18 +5,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'carrito',
-    component: ShoppingCartComponent
-  },
-  {
-    path: "login",
-    component: LoginComponent
-  }
+  {path: "", component: HomeComponent},
+  {path: "carrito", component: ShoppingCartComponent},
+  {path: "login", component: LoginComponent}
 ];
 
 @NgModule({

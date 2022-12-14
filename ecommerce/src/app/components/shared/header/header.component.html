@@ -1,17 +1,32 @@
-<app-nav></app-nav>
-<nav class="py-2 bg-light border-bottom">
-  <div class="container d-flex flex-wrap">
-    <ul class="nav me-auto">
-      <li class="nav-item"><a routerLink="" class="nav-link link-dark px-2 active" aria-current="page">Productos</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Historial</a></li>
-      <!-- <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Carrito</a></li> -->
-      <li class="nav-item"><a routerLink="carrito" class="nav-link link-dark px-2">Carrito</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Check-out</a></li>
-    </ul>
-    <ul class="nav">
-      <li class="nav-item"><a routerLink="login" class="nav-link link-dark px-2">Login</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg bg-light container">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Mi tienda</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="" >Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="carrito">Carrito</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Compras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Check-out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="login">Iniciar sesion</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar producto" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
   </div>
 </nav>
 
