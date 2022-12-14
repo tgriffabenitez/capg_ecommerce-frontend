@@ -1,0 +1,6 @@
+.navbar {
+    margin-bottom: 20px;
+    min-height: 50px;
+    position: relative;
+    z-index: 3;
+}

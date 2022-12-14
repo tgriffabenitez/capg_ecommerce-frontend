@@ -1,1 +1,7 @@
-<p>product-list works!</p>
+<div class="row">
+    <!-- muestro 4 publicaciones por renglon ya que 4 * 3 = 12, valor maximo -->
+    <!-- el tamano de la columna es de 3, y con 4 publicaciones llego a 12 -->
+    <div class="col-3 md-12" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">
+        <app-product-item></app-product-item>
+    </div>
+</div>
