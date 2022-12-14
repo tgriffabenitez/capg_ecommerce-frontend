@@ -14,7 +14,7 @@ import { FiltersComponent } from './components/home/filters/filters.component';
 import { ProductListComponent } from './components/home/product-list/product-list.component';
 import { ProductItemComponent } from './components/home/product-list/product-item/product-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { ErrorComponent } from './components/error/error.component';
+import { ErrorComponent } from './components/shared/error/error.component';
 
 @NgModule({
   declarations: [

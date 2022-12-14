@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { ErrorComponent } from './components/error/error.component';
+import { ErrorComponent } from './components/shared/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
