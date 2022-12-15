@@ -2,9 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 
-import { Category } from './category';
-import { Store } from './store';
-
 
 @Component({
   selector: 'app-home',
@@ -24,13 +21,4 @@ export class HomeComponent {
     });
 
   }
-
-
-
-
-
-
-
-
-
 }
