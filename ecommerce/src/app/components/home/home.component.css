@@ -1,6 +1,7 @@
-.card {
+.card-box {
   margin-top: 30px;
   border-radius: 0;
+  box-shadow: #000000 0px 0px 10px 0px;
 }
 
 .img-box {
@@ -17,10 +18,58 @@ img {
   text-align: center;
 }
 
-.card-box {
+.tienda-header {
   margin-top: 25px;
 }
 
+a:active {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.categoria-header-box {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.categoria-box .categoria-item {
+  display: block;
+  width: 90%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: solid 1px #000000;
+
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+
 .tienda-header {
-  margin-top: 25px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.tienda-box .tienda-item {
+  display: block;
+  width: 90%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: solid 1px #000000;
+
+  text-align: center;
+  text-decoration: none;
+  color: #fff
+
 }
