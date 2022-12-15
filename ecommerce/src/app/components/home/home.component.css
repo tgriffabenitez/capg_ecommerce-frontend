@@ -67,8 +67,12 @@ a:hover {
 
   text-align: center;
   text-decoration: none;
-  color: #fff
+  background-color: #78e5f8;
 
+}
+
+.tienda-box .tienda-item > a{
+  color: rgb(58, 95, 218) !important;
 }
 
 

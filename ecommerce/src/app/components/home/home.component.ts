@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   public products!: any;
+  public stores!: any;
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,11 @@ export class HomeComponent {
     this.http.get("http://localhost:8080/publicacion").subscribe((data: any) => {
       this.products = data;
       console.log(this.products);
+    });
+
+    this.http.get("http://localhost:8080/publicacion?tienda=").subscribe((data: any) => {
+      this.stores = data;
+      console.log(this.stores);
     });
 
   }
