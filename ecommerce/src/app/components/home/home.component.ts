@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-
+import { ProductService } from './product/product.service';
 
 
 @Component({
@@ -10,21 +9,16 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  public products!: any;
-  public stores!: any;
+  public products: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:8080/publicacion").subscribe((data: any) => {
+    this.productService.getProducts().subscribe((data: any) => {
       this.products = data;
       console.log(this.products);
     });
 
-    this.http.get("http://localhost:8080/publicacion?tienda=").subscribe((data: any) => {
-      this.stores = data;
-      console.log(this.stores);
-    });
-
   }
 }
+
