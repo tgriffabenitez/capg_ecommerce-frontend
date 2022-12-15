@@ -14,4 +14,8 @@ export class ProductService {
     return this.http.get("http://localhost:8080/publicacion");
   }
 
+  public getProducsByStore(storeName: string): any {
+    return this.http.get("http://localhost:8080/publicacion?tienda=" + storeName);
+  }
+
 }

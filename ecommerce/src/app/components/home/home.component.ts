@@ -18,7 +18,14 @@ export class HomeComponent {
       this.products = data;
       console.log(this.products);
     });
-
   }
+
+  public getStoreProducts(storeName: string): void {
+    this.productService.getProducsByStore(storeName).subscribe((data: any) => {
+      this.products = data;
+      console.log(this.products);
+    });
+  }
+
 }
 
