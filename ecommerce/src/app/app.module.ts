@@ -10,10 +10,9 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { HomeComponent } from './components/home/home.component';
 import { CartItemComponent } from './components/shopping-cart/cart-item/cart-item.component';
 import { LoginComponent } from './components/login/login.component';
-import { FiltersComponent } from './components/home/filters/filters.component';
-import { ProductItemComponent } from './components/home/product-item/product-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ErrorComponent } from './components/shared/error/error.component';
+import { HomeModule } from './components/home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,14 +23,13 @@ import { ErrorComponent } from './components/shared/error/error.component';
     HomeComponent,
     CartItemComponent,
     LoginComponent,
-    FiltersComponent,
-    ProductItemComponent,
     CheckoutComponent,
     ErrorComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

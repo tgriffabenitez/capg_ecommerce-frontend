@@ -1,0 +1,26 @@
+.card {
+  margin-top: 30px;
+  border-radius: 0;
+}
+
+.img-box {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+img {
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  text-align: center;
+}
+
+.card-box {
+  margin-top: 25px;
+}
+
+.tienda-header {
+  margin-top: 25px;
+}
