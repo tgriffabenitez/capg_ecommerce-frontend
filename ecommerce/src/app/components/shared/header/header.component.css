@@ -4,3 +4,10 @@
     position: relative;
     z-index: 3;
 }
+
+.nav-link{
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
