@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ProductService } from './product/product.service';
+
 
 import { Category } from './category';
 import { Store } from './store';
@@ -14,23 +14,11 @@ import { Store } from './store';
 export class HomeComponent {
 
   public products!: any;
-  lstCategories: Category[] = [];
-  lstStores: Store[] = [];
 
-  public selectedCategory!: Number;
-  public selectedStore!: Number;
-  productService: any;
-
-  constructor(private http: HttpClient, productService: ProductService) { }
-
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http.get("http://localhost:8080/publicacion").subscribe((data: any) => {
-      this.products = data;
-      console.log(this.products);
-    });
-
-    this.productService.getPublicaciones().subscribe((data: any) => {
       this.products = data;
       console.log(this.products);
     });

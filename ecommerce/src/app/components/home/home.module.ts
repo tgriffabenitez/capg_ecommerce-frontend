@@ -4,8 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HomeRoutingModule } from './home-routing.module';
 
-import { ProductService } from './product/product.service';
-
 
 @NgModule({
   declarations: [],
@@ -14,6 +12,6 @@ import { ProductService } from './product/product.service';
     HomeRoutingModule,
     HttpClientModule
   ],
-  providers: [ProductService]
+  providers: []
 })
 export class HomeModule { }
