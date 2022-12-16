@@ -20,4 +20,13 @@ export class ShoppingCartComponent {
     });
   }
 
+  removeProductFromCart(product : any) {
+    this.cartService.removeCartItem(product);
+    this.grandTotal = this.cartService.getTotalPrice();
+  }
+
+  emptyCart() {
+    this.cartService.removeAllCart();
+  }
 }
+

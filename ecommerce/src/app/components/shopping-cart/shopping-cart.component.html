@@ -24,7 +24,7 @@
 
                   <div class="cartSection removeWrap">
                       <!-- <a href="#" class="remove">x</a> -->
-                      <button type="button" class="btn btn-danger">Eliminar</button>
+                      <button (click)="removeProductFromCart(cartItem)" type="button" class="btn btn-danger" >Eliminar</button>
                   </div>
 
               </div>
@@ -37,7 +37,8 @@
 	<div class="subtotal cf">
 		<ul>
 			<li class="totalRow final"><span class="label">Total</span><span class="value">{{grandTotal | currency:"ARS":"$"}}</span></li>
-			<li class="totalRow"><a routerLink="/checkout" class="btn continue">Checkout</a></li>
+			<li class="totalRow"><button type="submit" routerLink="/checkout" class="btn btn-continue">Checkout</button></li>
+      <li class="totalRow"><button type="submit" class="btn btn-continue" (click)="emptyCart()">Vaciar carrito</button></li>
 	  	</ul>
 	</div>
 </div>
