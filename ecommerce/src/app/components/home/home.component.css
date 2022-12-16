@@ -42,9 +42,6 @@ a:hover {
   width: 90%;
   padding: 5px;
   margin-bottom: 10px;
-  border: solid 1px #000000;
-  border-radius: 15px;
-
   text-align: center;
   text-decoration: none;
   color: #fff;
@@ -61,14 +58,16 @@ a:hover {
   width: 90%;
   padding: 5px;
   margin-bottom: 10px;
-  border: solid 1px #000000;
-  border-radius: 15px;
-
-
   text-align: center;
   text-decoration: none;
   background-color: #fff;
 
+}
+
+.filter-btn-primary {
+  width: 90%;
+  background-color: #3a5fd8;
+  color: #fff;
 }
 
 .tienda-box .tienda-item > a{

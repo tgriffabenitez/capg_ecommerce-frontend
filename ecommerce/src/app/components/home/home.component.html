@@ -8,19 +8,19 @@
 
             <div class="categoria-box">
                 <div class="categoria-item">
-                  <button class="btn btn-primary" (click)="getProductsByCategory('Remeras')">Remeras</button>
+                  <button class="btn filter-btn-primary" (click)="getProductsByCategory('Remeras')">Remeras</button>
                 </div>
 
                 <div class="categoria-item">
-                  <button class="btn btn-primary" (click)="getProductsByCategory('Buzos')">Buzos</button>
+                  <button class="btn filter-btn-primary" (click)="getProductsByCategory('Buzos')">Buzos</button>
                 </div>
 
                 <div class="categoria-item">
-                  <button class="btn btn-primary" (click)="getProductsByCategory('Camperas')">Camperas</button>
+                  <button class="btn filter-btn-primary" (click)="getProductsByCategory('Camperas')">Camperas</button>
                 </div>
 
                 <div class="categoria-item">
-                  <button class="btn btn-primary" (click)="getProductsByCategory('Pantalones')">Pantalones</button>
+                  <button class="btn filter-btn-primary" (click)="getProductsByCategory('Pantalones')">Pantalones</button>
                 </div>
             </div>
 
@@ -30,23 +30,23 @@
 
             <div class="tienda-box">
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getProductsByStore('Minter')">Minter</button>
+                <button class="btn filter-btn-primary" (click)="getProductsByStore('Minter')">Minter</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getProductsByStore('Heels')">Heels</button>
+                <button class="btn filter-btn-primary" (click)="getProductsByStore('Heels')">Heels</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getProductsByStore('Rankle')">Rankle</button>
+                <button class="btn filter-btn-primary" (click)="getProductsByStore('Rankle')">Rankle</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getProductsByStore('Olokuti')">Olokuti</button>
+                <button class="btn filter-btn-primary" (click)="getProductsByStore('Olokuti')">Olokuti</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getProductsByStore('Semavru')">Semavru</button>
+                <button class="btn filter-btn-primary" (click)="getProductsByStore('Semavru')">Semavru</button>
               </div>
 
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="col-sm-12 col-md-10">
             <div class="row">
-              <div class=" col-sm-12 col-md-4 col-lg-3" *ngFor="let product of products">
+              <div class=" col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of products">
                 <div class="card">
                   <img src={{product.imagenPublicacion}} class="card-img-top" width="100%" height="225">
                   <div class="card-body">
