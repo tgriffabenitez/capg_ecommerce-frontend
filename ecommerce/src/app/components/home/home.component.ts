@@ -17,28 +17,30 @@ export class HomeComponent {
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((data: any) => {
       this.products = data;
-      console.log(this.products);
+
+      this.products.forEach((element : any) => {
+        Object.assign(element, {cantidad: 1, total: element.precio});
+
+      });
+
     });
   }
 
   public getAllProducts(): void {
     this.productService.getAllProducts().subscribe((data: any) => {
       this.products = data;
-      console.log(this.products);
     });
   }
 
   public getProductsByStore(storeName: string): void {
     this.productService.getProductsByStore(storeName).subscribe((data: any) => {
       this.products = data;
-      console.log(this.products);
     });
   }
 
   public getProductsByCategory(categoryName: string): void {
     this.productService.getProductsByCategory(categoryName).subscribe((data: any) => {
       this.products = data;
-      console.log(this.products);
     });
   }
 

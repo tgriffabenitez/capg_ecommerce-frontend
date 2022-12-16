@@ -4,13 +4,13 @@
 		<a href="#" class="continue">Continuar comprando</a>
 	</div>
 
-	<li class="list-group-item" *ngFor="let i of [1,2,3,4,5]">
+	<li class="list-group-item" *ngFor="let cartItem of cartItemList">
 		<app-cart-item></app-cart-item>
 	</li>
 
 	<div class="subtotal cf">
 		<ul>
-			<li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
+			<li class="totalRow final"><span class="label">Total</span><span class="value">{{cartItemList.precio}}</span></li>
 			<li class="totalRow"><a routerLink="/checkout" class="btn continue">Checkout</a></li>
 	  	</ul>
 	</div>

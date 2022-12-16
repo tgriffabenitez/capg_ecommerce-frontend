@@ -1,18 +1,18 @@
 <div class="cart">
     <ul class="cartWrap">
         <li class="items odd">
-            <div class="infoWrap"> 
+            <div class="infoWrap">
 
                 <div class="cartSection">
                     <img src="https://dehoynopasa.com.ar/wp-content/uploads/Negra-768x768.jpg" alt="" class="itemImg" style="height: 100px;"/>
                     <p class="itemNumber">#QUE-007544-002</p>
-                    <h3>Remera Negra 1</h3>
-                    <p> <input type="text"  class="qty" placeholder="1"/> x $5.00</p>
+                    <h3>{{productList.titulo}}</h3>
+                    <p> <input type="text"  class="qty" placeholder="1"/> x {{productList.precio | currency:"ARS":"$"}}</p>
                     <p class="stockStatus"> Stock</p>
-                </div>  
+                </div>
 
                 <div class="prodTotal cartSection">
-                    <p>$15.00</p>
+                    <p>{{productList.precio}}</p>
                 </div>
 
                 <div class="cartSection removeWrap">
