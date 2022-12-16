@@ -23,7 +23,6 @@ export class CartService {
   }
 
   addProductToCart(product : any) {
-
     // verifico si el producto ya existe en el carrito
     let item = this.cartItemList.find((a : any) => a.id === product.id);
 
@@ -41,12 +40,8 @@ export class CartService {
   }
 
   getTotalPrice() : number {
-    let grandTotal = 0;
-    this.cartItemList.map((a : any) => {
-      grandTotal += a.total;
-    })
-
-    return grandTotal;
+    // magia de stackOverflow
+    return this.cartItemList.reduce((a : any, b : any) => a + (b.precio * b.cantidad), 0);
   }
 
   removeCartItem(product : any) {
