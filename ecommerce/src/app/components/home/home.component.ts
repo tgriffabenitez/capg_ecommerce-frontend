@@ -14,14 +14,21 @@ export class HomeComponent {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((data: any) => {
+    this.productService.getAllProducts().subscribe((data: any) => {
       this.products = data;
       console.log(this.products);
     });
   }
 
-  public getStoreProducts(storeName: string): void {
-    this.productService.getProducsByStore(storeName).subscribe((data: any) => {
+  public getProductsByStore(storeName: string): void {
+    this.productService.getProductsByStore(storeName).subscribe((data: any) => {
+      this.products = data;
+      console.log(this.products);
+    });
+  }
+
+  public getProductsByCategory(categoryName: string): void {
+    this.productService.getProductsByCategory(categoryName).subscribe((data: any) => {
       this.products = data;
       console.log(this.products);
     });

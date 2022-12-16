@@ -8,19 +8,19 @@
 
             <div class="categoria-box">
                 <div class="categoria-item">
-                 <a href="">Remeras</a>
+                  <button class="btn btn-primary" (click)="getProductsByCategory('Remeras')">Remeras</button>
                 </div>
 
                 <div class="categoria-item">
-                  <a href="">Buzos</a>
+                  <button class="btn btn-primary" (click)="getProductsByCategory('Buzos')">Buzos</button>
                 </div>
 
                 <div class="categoria-item">
-                  <a href="">Camperas</a>
+                  <button class="btn btn-primary" (click)="getProductsByCategory('Camperas')">Camperas</button>
                 </div>
 
                 <div class="categoria-item">
-                  <a href="">Pantalones</a>
+                  <button class="btn btn-primary" (click)="getProductsByCategory('Pantalones')">Pantalones</button>
                 </div>
             </div>
 
@@ -30,23 +30,23 @@
 
             <div class="tienda-box">
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getStoreProducts('Minter')">Minter</button>
+                <button class="btn btn-primary" (click)="getProductsByStore('Minter')">Minter</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getStoreProducts('Heels')">Heels</button>
+                <button class="btn btn-primary" (click)="getProductsByStore('Heels')">Heels</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getStoreProducts('Rankle')">Rankle</button>
+                <button class="btn btn-primary" (click)="getProductsByStore('Rankle')">Rankle</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getStoreProducts('Olokuti')">Olokuti</button>
+                <button class="btn btn-primary" (click)="getProductsByStore('Olokuti')">Olokuti</button>
               </div>
 
               <div class="tienda-item">
-                <button class="btn btn-primary" (click)="getStoreProducts('Semavru')">Semavru</button>
+                <button class="btn btn-primary" (click)="getProductsByStore('Semavru')">Semavru</button>
               </div>
 
             </div>

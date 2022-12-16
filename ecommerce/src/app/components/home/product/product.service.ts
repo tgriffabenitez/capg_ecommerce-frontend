@@ -10,12 +10,16 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  public getProducts(): any {
+  public getAllProducts(): any {
     return this.http.get("http://localhost:8080/publicacion");
   }
 
-  public getProducsByStore(storeName: string): any {
+  public getProductsByStore(storeName: string): any {
     return this.http.get("http://localhost:8080/publicacion?tienda=" + storeName);
+  }
+
+  public getProductsByCategory(categoryName: string): any {
+    return this.http.get("http://localhost:8080/publicacion?categoria=" + categoryName);
   }
 
 }
