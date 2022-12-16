@@ -11,7 +11,7 @@ export class CartService {
   public cartItemList : any = [];
   public productList : any = new BehaviorSubject<any>([]);
 
-  constructor() { }
+  constructor(private productService : ProductService) { }
 
   getProducts() {
     return this.productList.asObservable();
@@ -23,6 +23,15 @@ export class CartService {
   }
 
   addProductToCart(product : any) {
+    // check if item is from the same store
+    if(this.cartItemList.length > 0) {
+      if(this.cartItemList[0].vendedor.tienda !== product.vendedor.tienda) {
+        alert("No se puede agregar un producto de otra tienda");
+        return;
+      }
+    }
+
+
     // verifico si el producto ya existe en el carrito
     let item = this.cartItemList.find((a : any) => a.id === product.id);
 
@@ -34,6 +43,7 @@ export class CartService {
     } else {
       item.cantidad += 1;
       item.total = item.cantidad * item.price;
+      console.log(product.tienda);
     }
 
     this.productList.next(this.cartItemList);
