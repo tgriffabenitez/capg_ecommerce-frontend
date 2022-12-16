@@ -50,11 +50,17 @@ export class CartService {
   }
 
   removeCartItem(product : any) {
-    this.cartItemList.map((a : any, index : any) => {
-      if(product.id === a.id) {
-        this.cartItemList.splice(index, 1);
-      }
-    })
+    // verifico si la cantidad es mayor a 1
+    // si es mayor a 1, decremento la cantidad
+    if(product.cantidad > 1) {
+      product.cantidad -= 1;
+      product.total = product.cantidad * product.price;
+
+    // si es igual a 1, elimino el producto del carrito
+    } else {
+      this.cartItemList = this.cartItemList.filter((a : any) => a.id !== product.id);
+    }
+
     this.productList.next(this.cartItemList);
   }
 
