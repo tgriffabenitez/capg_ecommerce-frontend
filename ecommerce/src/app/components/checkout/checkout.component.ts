@@ -26,8 +26,8 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public submitForm(){
-    alert("Formulario enviado");
+  public onSubmitForm(data: any) {
+    console.log(data);
   }
 
 }
