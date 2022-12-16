@@ -72,6 +72,10 @@ a:hover {
   color: #fff;
 }
 
+.filter-btn-primary:hover {
+  transform: scale(1.2);
+}
+
 .filter-btn-danger {
   width: 90%;
   background-color: #f84646;
