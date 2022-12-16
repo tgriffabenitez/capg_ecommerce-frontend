@@ -5,12 +5,38 @@
 	</div>
 
 	<li class="list-group-item" *ngFor="let cartItem of cartItemList">
-		<app-cart-item></app-cart-item>
+		<div class="cart">
+      <ul class="cartWrap">
+          <li class="items odd">
+              <div class="infoWrap">
+
+                  <div class="cartSection">
+                      <img src={{cartItem.imagenPublicacion}} alt="" class="itemImg" style="height: 100px;"/>
+                      <p class="itemNumber">#QUE-007544-002</p>
+                      <h3>{{cartItem.titulo}}</h3>
+                      <p> <input type="text"  class="qty" placeholder="1"/> x {{cartItem.precio}}</p>
+                      <p class="stockStatus"> Stock</p>
+                  </div>
+
+                  <div class="prodTotal cartSection">
+                      <p>{{cartItem.precio | currency:"ARS":"$"}}</p>
+                  </div>
+
+                  <div class="cartSection removeWrap">
+                      <!-- <a href="#" class="remove">x</a> -->
+                      <button type="button" class="btn btn-danger">Eliminar</button>
+                  </div>
+
+              </div>
+          </li>
+      </ul>
+  </div>
+
 	</li>
 
 	<div class="subtotal cf">
 		<ul>
-			<li class="totalRow final"><span class="label">Total</span><span class="value">{{cartItemList.precio}}</span></li>
+			<li class="totalRow final"><span class="label">Total</span><span class="value">{{grandTotal | currency:"ARS":"$"}}</span></li>
 			<li class="totalRow"><a routerLink="/checkout" class="btn continue">Checkout</a></li>
 	  	</ul>
 	</div>

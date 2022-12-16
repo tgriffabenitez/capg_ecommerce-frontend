@@ -8,7 +8,6 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { HomeComponent } from './components/home/home.component';
-import { CartItemComponent } from './components/shopping-cart/cart-item/cart-item.component';
 import { LoginComponent } from './components/login/login.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ErrorComponent } from './components/shared/error/error.component';
@@ -21,7 +20,6 @@ import { HomeModule } from './components/home/home.module';
     FooterComponent,
     ShoppingCartComponent,
     HomeComponent,
-    CartItemComponent,
     LoginComponent,
     CheckoutComponent,
     ErrorComponent,

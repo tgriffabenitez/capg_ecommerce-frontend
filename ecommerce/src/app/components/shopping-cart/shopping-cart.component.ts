@@ -8,12 +8,16 @@ import { CartService } from './cart.service';
 })
 export class ShoppingCartComponent {
 
-  public cartItemList : any;
+  public cartItemList : any = [];
+  public grandTotal !: number;
 
   constructor(private cartService : CartService) {}
 
   ngOnInit(): void {
-    this.cartItemList = this.cartService.getProducts();
+    this.cartService.getProducts().subscribe((res : any) => {
+      this.cartItemList = res;
+      this.grandTotal = this.cartService.getTotalPrice();
+    });
   }
 
 }
