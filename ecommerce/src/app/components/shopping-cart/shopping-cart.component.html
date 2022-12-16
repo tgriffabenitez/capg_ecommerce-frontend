@@ -19,7 +19,7 @@
                   </div>
 
                   <div class="prodTotal cartSection">
-                      <p>{{cartItem.precio | currency:"ARS":"$"}}</p>
+                      <p>{{(cartItem.precio * cartItem.cantidad) | currency:"ARS":"$"}}</p>
                   </div>
 
                   <div class="cartSection removeWrap">
