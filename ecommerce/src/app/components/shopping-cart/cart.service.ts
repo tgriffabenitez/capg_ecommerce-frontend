@@ -23,9 +23,21 @@ export class CartService {
   }
 
   addProductToCart(product : any) {
-    this.cartItemList.push(product);
+
+    // verifico si el producto ya existe en el carrito
+    let item = this.cartItemList.find((a : any) => a.id === product.id);
+
+    // si no existe lo agrego al carrito
+    if(!item) {
+      this.cartItemList.push({...product, cantidad: 1, total: product.precio});
+
+    // si existe, solo incremento la cantidad
+    } else {
+      item.cantidad += 1;
+      item.total = item.cantidad * item.price;
+    }
+
     this.productList.next(this.cartItemList);
-    this.getTotalPrice();
   }
 
   getTotalPrice() : number {
