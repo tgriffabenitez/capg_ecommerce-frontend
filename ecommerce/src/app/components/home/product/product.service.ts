@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
-  public products: any;
-
   constructor(private http: HttpClient) { }
 
   public getAllProducts(): any {

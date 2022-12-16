@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../shopping-cart/cart.service';
 import { ProductService } from './product/product.service';
 
 
@@ -11,7 +12,7 @@ export class HomeComponent {
 
   public products: any;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe((data: any) => {
@@ -39,6 +40,11 @@ export class HomeComponent {
       this.products = data;
       console.log(this.products);
     });
+  }
+
+  addProductToCart(product: any) {
+    this.cartService.addProductToCart(product);
+    console.log(this.cartService.cartItemList);
   }
 
 }

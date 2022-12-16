@@ -69,7 +69,7 @@
                     <p class="card-text">{{product.descripcion}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-primary">Comprar</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" (click)="addProductToCart(product)">Comprar</button>
                       </div>
                       <small><strong>{{product.precio | currency:"ARS":"$"}}</strong></small>
                     </div>
