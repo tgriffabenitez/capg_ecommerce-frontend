@@ -83,11 +83,10 @@ img {
 }
 
 .wrap {
-  width: 75%;
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 5% 0;
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 
 .heading {
@@ -106,38 +105,12 @@ img {
   font-family: "Montserrat", sans-serif;
   letter-spacing: -.015em;
   font-size: .75em;
-  padding: 1em;
+  padding: 0.75em;
   color: #fff;
-  background: #82ca9c;
-  font-weight: bold;
-  border-radius: 50px;
+  background: #4285f4;
+  border-radius: 25px;
   float: right;
   text-align: right;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -ms-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
-}
-
-.heading a.continue:after {
-  content: "\276f";
-  padding: .5em;
-  position: relative;
-  right: 0;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
-}
-
-.heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
-  background: #f69679;
-}
-
-.heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
-  right: -10px;
 }
 
 .tableHead {
@@ -189,32 +162,8 @@ img {
   border-radius: 50px;
   float: right;
   text-align: right;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -ms-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
 }
 
-.btn:after {
-  content: "\276f";
-  padding: .5em;
-  position: relative;
-  right: 0;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
-}
-
-.btn:hover, .btn:focus, .btn:active {
-  background: #f69679;
-}
-
-.btn:hover:after, .btn:focus:after, .btn:active:after {
-  right: -10px;
-}
 
 .promoCode .btn {
   font-size: .85em;
@@ -352,10 +301,6 @@ img {
   text-transform: uppercase;
 }
 
-.cart .items .cartSection p.stockStatus.out {
-  color: #f16a41;
-}
-
 .cart .items .cartSection .itemImg {
   width: 4em;
   float: left;
@@ -385,12 +330,28 @@ img {
 }
 
 /* Boton para borrar el producto */
-.btn-danger {
-  padding: .5em;
-  padding-right: 1em;
-  font-size: 1em;
-  display: inline-block;
-  line-height: 1;
+.btn-vaciar-carrito {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -.015em;
+  font-size: .75em;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff !important;
+  background: #ff2e2e;
+  border-radius: 25px;
   text-align: center;
-  left: auto;
+  width: 50%;
+}
+
+.btn-checkout {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -.015em;
+  font-size: .75em;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff !important;
+  background: #08b146;
+  border-radius: 25px;
+  text-align: center;
+  width: 50%;
 }

@@ -37,8 +37,8 @@
 	<div class="subtotal cf">
 		<ul>
 			<li class="totalRow final"><span class="label">Total</span><span class="value">{{grandTotal | currency:"ARS":"$"}}</span></li>
-			<li class="totalRow"><button type="submit" routerLink="/checkout" class="btn btn-continue">Checkout</button></li>
-      <li class="totalRow"><button type="submit" class="btn btn-continue" (click)="emptyCart()">Vaciar carrito</button></li>
+			<li class="totalRow"><button type="submit" routerLink="/checkout" class="btn btn-checkout">Checkout</button></li>
+      <li class="totalRow"><button type="submit" class="btn btn-vaciar-carrito" (click)="emptyCart()">Vaciar carrito</button></li>
 	  	</ul>
 	</div>
 </div>
