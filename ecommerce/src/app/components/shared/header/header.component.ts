@@ -14,10 +14,8 @@ export class HeaderComponent {
 
   ngOnInit() : void {
     this.cartService.getProducts().subscribe((data : any) => {
-      this.totalCartItem = data.length;
+      // total de productos en el carrito
+      this.totalCartItem = data.reduce((a : any, b : any) => a + (b.cantidad), 0);
     });
   }
-
-
-
 }
