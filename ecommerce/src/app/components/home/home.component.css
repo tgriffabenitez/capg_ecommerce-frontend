@@ -33,6 +33,7 @@ a:hover {
 }
 
 .categoria-header-box {
+  width: 90%;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -49,6 +50,7 @@ a:hover {
 
 
 .tienda-header {
+  width: 90%;
   text-align: center;
   margin-bottom: 5px;
 }
