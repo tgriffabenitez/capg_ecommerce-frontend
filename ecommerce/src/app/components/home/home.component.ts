@@ -20,6 +20,13 @@ export class HomeComponent {
     });
   }
 
+  public getAllProducts(): void {
+    this.productService.getAllProducts().subscribe((data: any) => {
+      this.products = data;
+      console.log(this.products);
+    });
+  }
+
   public getProductsByStore(storeName: string): void {
     this.productService.getProductsByStore(storeName).subscribe((data: any) => {
       this.products = data;

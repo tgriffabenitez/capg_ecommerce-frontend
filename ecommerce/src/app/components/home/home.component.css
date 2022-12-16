@@ -72,6 +72,12 @@ a:hover {
   color: #fff;
 }
 
+.filter-btn-danger {
+  width: 90%;
+  background-color: #f84646;
+  color: #fff;
+}
+
 .tienda-box .tienda-item > a{
   color: rgb(58, 95, 218) !important;
 }
