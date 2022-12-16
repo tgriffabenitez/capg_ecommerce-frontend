@@ -1,7 +1,7 @@
 <div class="wrap cf">
 	<div class="heading cf">
 		<h1>Mi carrito</h1>
-		<a href="#" class="continue">Continuar comprando</a>
+		<a routerLink="" class="continue">Continuar comprando</a>
 	</div>
 
 	<li class="list-group-item" *ngFor="let cartItem of cartItemList">
@@ -12,9 +12,9 @@
 
                   <div class="cartSection">
                       <img src={{cartItem.imagenPublicacion}} alt="" class="itemImg" style="height: 100px;"/>
-                      <p class="itemNumber">#QUE-007544-002</p>
                       <h3>{{cartItem.titulo}}</h3>
-                      <p> <input type="text"  class="qty" placeholder="1"/> x {{cartItem.precio}}</p>
+                      <p class="itemNumber">{{cartItem.descripcion}}</p><br>
+                      <p> {{cartItem.cantidad}} x {{cartItem.precio | currency:"ARS":"$"}}</p>
                       <p class="stockStatus"> Stock</p>
                   </div>
 
