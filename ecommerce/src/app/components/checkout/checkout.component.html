@@ -5,16 +5,16 @@
             <form #billingAddress="ngForm" class="needs-validation" novalidate (ngSubmit)="onSubmitForm(billingAddress.value)">
                 <div class="row g-3">
                     <div class="col-sm-6">
-                        <label for="firstName" class="form-label">firstName</label>
-                        <input [(ngModel)]="firstName" type="text" class="form-control" name="firstName" placeholder="" value="" required>
+                        <label for="nombre" class="form-label">nombre</label>
+                        <input [(ngModel)]="nombre" type="text" class="form-control" name="nombre" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Debe ingresar un nombre.
                         </div>
                     </div>
 
                     <div class="col-sm-6">
-                        <label for="lastName" class="form-label">Apellido</label>
-                        <input [(ngModel)]="lastName" type="text" class="form-control" name="lastName" placeholder="" value="" required>
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input [(ngModel)]="apellido" type="text" class="form-control" name="apellido" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Debe ingresar un apellido.
                         </div>
@@ -29,32 +29,32 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="address" class="form-label">Direccion</label>
-                        <input [(ngModel)]="address" type="text" class="form-control" name="address" placeholder="Calle" required>
+                        <label for="direccionCalle" class="form-label">Direccion</label>
+                        <input [(ngModel)]="direccionCalle" type="text" class="form-control" name="direccionCalle" placeholder="Calle" required>
                         <div class="invalid-feedback">
                             Debe ingresar una direccion.
                         </div>
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="firstName" class="form-label">Numero</label>
-                        <input [(ngModel)]="numero" type="text" inputmode="numeric" class="form-control" name="numero" placeholder="1234" value="" required>
+                        <label for="direccionNumero" class="form-label">Numero</label>
+                        <input [(ngModel)]="direccionNumero" type="text" inputmode="numeric" class="form-control" name="direccionNumero" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Ingrese la altura.
                         </div>
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="lastName" class="form-label">Piso <span class="text-muted">(Opcional)</span></label>
-                        <input [(ngModel)]="piso" type="text" inputmode="numeric" class="form-control" name="piso" placeholder="" value="" required>
+                        <label for="direccionPiso" class="form-label">Piso <span class="text-muted">(Opcional)</span></label>
+                        <input [(ngModel)]="direccionPiso" type="text" inputmode="numeric" class="form-control" name="direccionPiso" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Debe ingresar un apellido.
                         </div>
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="lastName" class="form-label">Depto <span class="text-muted">(Opcional)</span></label>
-                        <input [(ngModel)]="depto" type="text" class="form-control" name="depto" placeholder="" value="" required>
+                        <label for="direccionDepto" class="form-label">Depto <span class="text-muted">(Opcional)</span></label>
+                        <input [(ngModel)]="direccionDepto" type="text" class="form-control" name="direccionDepto" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Debe ingresar un apellido.
                         </div>
@@ -65,51 +65,49 @@
 
                 <h4 class="mb-3">Metodo de pago</h4>
                 <div class="my-3">
-                    <div class="form-check">
-                        <input [(ngModel)]="credito" name="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                        <label class="form-check-label" for="credito">Tarjeta de credito</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input [(ngModel)]="debito" name="debito" name="paymentMethod" type="radio" class="form-check-input" required>
-                        <label class="form-check-label" for="debit">Tarjeta de debito</label>
-                    </div>
+                  <select class="form-select" aria-label="Default select example">
+                    <selected [(ngModel)]="metodoDePago" >Seleccione la tarjeta</selected>
+                    <option value="CREDITO_VISA">Tarjeta credito visa</option>
+                    <option value="CREDITO_MASTERCARD">Tarjeta credito mastercard</option>
+                    <option value="DEBITO_VISA">Tarjeta debito visa</option>
+                    <option value="DEBITO_MASTERCARD">Tarjeta debito mastercard</option>
+                  </select>
                 </div>
 
                 <div class="row gy-3">
-                    <div class="col-md-6">
-                        <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
-                        <input [(ngModel)]="nombreTarjeta" type="text" class="form-control" name="nombreTarjeta" placeholder="" required>
-                        <small class="text-muted">Nombre tal cual aparece en la tarjeta</small>
-                        <div class="invalid-feedback">
-                            Debe ingresar el nombre tal cual aparece en la tarjeta.
-                        </div>
-                    </div>
+                  <div class="col-md-6">
+                      <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+                      <input [(ngModel)]="nombreTarjeta" type="text" class="form-control" name="nombreTarjeta" placeholder="" required>
+                      <small class="text-muted">Nombre tal cual aparece en la tarjeta</small>
+                      <div class="invalid-feedback">
+                          Debe ingresar el nombre tal cual aparece en la tarjeta.
+                      </div>
+                  </div>
 
-                    <div class="col-md-6">
-                        <label for="cc-number" class="form-label">Numero de la tarjeta</label>
-                        <input [(ngModel)]="numeroTarjeta" type="text" class="form-control" name="numeroTarjeta" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Debe ingresar el numero de la tarjeta.
-                        </div>
-                    </div>
+                  <div class="col-md-6">
+                      <label for="cc-number" class="form-label">Numero de la tarjeta</label>
+                      <input [(ngModel)]="numeroTarjeta" type="text" class="form-control" name="numeroTarjeta" placeholder="" required>
+                      <div class="invalid-feedback">
+                          Debe ingresar el numero de la tarjeta.
+                      </div>
+                  </div>
 
-                    <div class="col-md-3">
-                        <label for="cc-expiration" class="form-label">Vencimiento</label>
-                        <input [(ngModel)]="expiracionTarjeta" type="text" class="form-control" name="expiracionTarjeta" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Debe ingresar la fecha de vencimiento
-                        </div>
-                    </div>
+                  <div class="col-md-3">
+                      <label for="fechaVencimiento" class="form-label">Vencimiento</label>
+                      <input [(ngModel)]="fechaVencimiento" type="text" class="form-control" name="fechaVencimiento" placeholder="" required>
+                      <div class="invalid-feedback">
+                          Debe ingresar la fecha de vencimiento
+                      </div>
+                  </div>
 
-                    <div class="col-md-3">
-                        <label for="cc-cvv" class="form-label">CVV</label>
-                        <input [(ngModel)]="cvvTarjeta" type="text" class="form-control" name="cvvTarjeta" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Debe ingresar el codigo de seguridad
-                        </div>
-                    </div>
-                </div>
+                  <div class="col-md-3">
+                      <label for="codigoSeguridad" class="form-label">CVV</label>
+                      <input [(ngModel)]="codigoSeguridad" type="text" class="form-control" name="codigoSeguridad" placeholder="" required>
+                      <div class="invalid-feedback">
+                          Debe ingresar el codigo de seguridad
+                      </div>
+                  </div>
+              </div>
 
                 <hr class="my-4">
 

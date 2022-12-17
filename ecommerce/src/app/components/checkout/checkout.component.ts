@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckoutService } from './checkout.service';
+import { CartService } from '../shopping-cart/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,27 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  public firstName : string | undefined;
-  public lastName : string | undefined;
+  public nombre : string | undefined;
+  public apellido : string | undefined;
   public email : string | undefined;
-  public address : string | undefined;
-  public numero: string | undefined;
-  public piso: string | undefined;
-  public depto: string | undefined;
-  public debito : string | undefined;
-  public credito : string | undefined;
-  public nombreTarjeta : string | undefined;
-  public numeroTarjeta : string | undefined;
-  public expiracionTarjeta : string | undefined;
-  public cvvTarjeta : string | undefined;
+  public telefono : string | undefined;
+  public direccionCalle : string | undefined;
+  public direccionNumero: string | undefined;
+  public direccionPiso: string | undefined;
+  public direccionDepto: string | undefined;
+  public metodoDePago: string | undefined;
+  public publicaciones: any = [];
+
+  public nombreTarjeta: string | undefined;
+  public numeroTarjeta: string | undefined;
+  public codigoSeguridad: string | undefined;
+  public fechaVencimiento: string | undefined;
 
 
-  constructor() { }
+
+  constructor(private checkoutService : CheckoutService, private cartService : CartService) { }
 
   ngOnInit(): void { }
 
+  public getCartItems() {
+    return this.cartService.cartItemList;
+  }
+
+
   public onSubmitForm(data: any) {
     console.log(data);
+
+    this.checkoutService.onSendForm(data).subscribe((res : any) => {
+      console.log(res);
+    });
+
   }
 
 }
