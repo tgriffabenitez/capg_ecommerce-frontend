@@ -8,6 +8,7 @@ import { CartService } from '../shopping-cart/cart.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  constructor(private checkoutService : CheckoutService, private cartService : CartService) { }
 
   public nombre : string | undefined;
   public apellido : string | undefined;
@@ -27,7 +28,6 @@ export class CheckoutComponent implements OnInit {
 
 
 
-  constructor(private checkoutService : CheckoutService, private cartService : CartService) { }
 
   ngOnInit(): void { }
 
@@ -37,6 +37,9 @@ export class CheckoutComponent implements OnInit {
 
 
   public onSubmitForm(data: any) {
+
+    this.publicaciones = this.cartService.cartItemList;
+
     console.log(data);
 
     this.checkoutService.onSendForm(data).subscribe((res : any) => {

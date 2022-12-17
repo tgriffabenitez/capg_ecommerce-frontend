@@ -65,7 +65,7 @@
 
                 <h4 class="mb-3">Metodo de pago</h4>
                 <div class="my-3">
-                  <select class="form-select" aria-label="Default select example">
+                  <select name="metodoDePago" class="form-select" aria-label="Default select example">
                     <selected [(ngModel)]="metodoDePago" >Seleccione la tarjeta</selected>
                     <option value="CREDITO_VISA">Tarjeta credito visa</option>
                     <option value="CREDITO_MASTERCARD">Tarjeta credito mastercard</option>
@@ -76,7 +76,7 @@
 
                 <div class="row gy-3">
                   <div class="col-md-6">
-                      <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+                      <label for="nombreTarjeta" class="form-label">Nombre en la tarjeta</label>
                       <input [(ngModel)]="nombreTarjeta" type="text" class="form-control" name="nombreTarjeta" placeholder="" required>
                       <small class="text-muted">Nombre tal cual aparece en la tarjeta</small>
                       <div class="invalid-feedback">
@@ -85,7 +85,7 @@
                   </div>
 
                   <div class="col-md-6">
-                      <label for="cc-number" class="form-label">Numero de la tarjeta</label>
+                      <label for="numeroTarjeta" class="form-label">Numero de la tarjeta</label>
                       <input [(ngModel)]="numeroTarjeta" type="text" class="form-control" name="numeroTarjeta" placeholder="" required>
                       <div class="invalid-feedback">
                           Debe ingresar el numero de la tarjeta.
