@@ -10,6 +10,7 @@ import { CartService } from '../shopping-cart/cart.service';
 export class CheckoutComponent implements OnInit {
   constructor(private checkoutService : CheckoutService, private cartService : CartService) { }
 
+  public clienteId = localStorage.getItem("clienteId");
   public nombre : string | undefined;
   public apellido : string | undefined;
   public email : string | undefined;
@@ -32,6 +33,8 @@ export class CheckoutComponent implements OnInit {
 
 
 
+
+
   ngOnInit(): void { }
 
   public onSubmitForm(data: any) {
@@ -47,7 +50,7 @@ export class CheckoutComponent implements OnInit {
 
     // guardo los datos del formulario en un objeto
     let datos = {
-      "clienteId": "58",
+      clienteId: this.clienteId,
       nombre: this.nombre,
       apellido: this.apellido,
       email: this.email,
