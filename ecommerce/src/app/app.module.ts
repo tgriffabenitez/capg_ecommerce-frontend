@@ -14,6 +14,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ErrorComponent } from './components/shared/error/error.component';
 import { HomeModule } from './components/home/home.module';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ShoppingCartHistoryComponent } from './components/shopping-cart-history/shopping-cart-history.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     CheckoutComponent,
     ErrorComponent,
     SignUpComponent,
+    ShoppingCartHistoryComponent,
   ],
   imports: [
     BrowserModule,
