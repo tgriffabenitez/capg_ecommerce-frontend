@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ErrorComponent } from './components/shared/error/error.component';
 import { HomeModule } from './components/home/home.module';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeModule } from './components/home/home.module';
     LoginComponent,
     CheckoutComponent,
     ErrorComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

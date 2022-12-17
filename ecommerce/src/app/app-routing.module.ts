@@ -5,11 +5,13 @@ import { ErrorComponent } from './components/shared/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "carrito", component: ShoppingCartComponent},
   {path: "login", component: LoginComponent},
+  {path: "sign-up", component: SignUpComponent},
   {path: "checkout", component: CheckoutComponent},
   {path: "error", component: ErrorComponent}
 ];
