@@ -8,7 +8,8 @@ export class CheckoutService {
 
   constructor(private http : HttpClient) { }
 
-  public onSendForm(data: any) {
+  public postCheckout(data: any) {
+    // envio los datos del formulario al backend
     return this.http.post('http://localhost:8080/carrito', data);
   }
 

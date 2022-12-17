@@ -18,34 +18,58 @@ export class CheckoutComponent implements OnInit {
   public direccionNumero: string | undefined;
   public direccionPiso: string | undefined;
   public direccionDepto: string | undefined;
-  public metodoDePago: string | undefined;
+  public metodoDePago: string = "EFECTIVO";
   public publicaciones: any = [];
+  public publicacionesIdCantidad : any = [];
 
   public nombreTarjeta: string | undefined;
   public numeroTarjeta: string | undefined;
   public codigoSeguridad: string | undefined;
   public fechaVencimiento: string | undefined;
 
+  public categoriaId : number = 0;
+  public cantidadPublicaciones : number = 0;
 
 
 
   ngOnInit(): void { }
 
-  public getCartItems() {
-    return this.cartService.cartItemList;
-  }
-
-
   public onSubmitForm(data: any) {
 
+    // guardo el id y la cantidad de cada publicacion en un array
     this.publicaciones = this.cartService.cartItemList;
+    this.publicaciones.forEach((publicacion: any) => {
+      this.publicacionesIdCantidad.push({publicacionId: publicacion.id, cantidad: publicacion.cantidad});
+    });
 
-    console.log(data);
 
-    this.checkoutService.onSendForm(data).subscribe((res : any) => {
-      console.log(res);
+    console.log(this.publicacionesIdCantidad);
+
+    // guardo los datos del formulario en un objeto
+    let datos = {
+      "clienteId": "58",
+      nombre: this.nombre,
+      apellido: this.apellido,
+      email: this.email,
+      "telefono": "1136600226",
+      direccionCalle: this.direccionCalle,
+      direccionNumero: this.direccionNumero,
+      direccionPiso: this.direccionPiso,
+      direccionDepto: this.direccionDepto,
+      metodoDePago: this.metodoDePago,
+      publicaciones: this.publicacionesIdCantidad,
+      nombreTarjeta: this.nombreTarjeta,
+      numeroTarjeta: this.numeroTarjeta,
+      codigoSeguridad: this.codigoSeguridad,
+      fechaVencimiento: this.fechaVencimiento,
+    }
+
+    console.log(datos);
+
+    // envio los datos al servicio
+    this.checkoutService.postCheckout(datos).subscribe((data: any) => {
+      console.log(data);
     });
 
   }
-
 }

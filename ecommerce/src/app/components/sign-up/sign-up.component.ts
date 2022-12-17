@@ -10,7 +10,8 @@ export class SignUpComponent {
   constructor() { }
 
   public inputEmail : string = "";
-  public inputPassword : string = "";
+  public inputPassword1 : string = "";
+  public inputPassword2 : string = "";
 
   onSumbitForm(data : any){
 
