@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckoutService } from './checkout.service';
 import { CartService } from '../shopping-cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -8,7 +9,8 @@ import { CartService } from '../shopping-cart/cart.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  constructor(private checkoutService : CheckoutService, private cartService : CartService) { }
+
+  constructor(private checkoutService:CheckoutService, private cartService:CartService, private router:Router) { }
 
   public clienteId = localStorage.getItem("clienteId");
   public nombre : string | undefined;
@@ -30,9 +32,6 @@ export class CheckoutComponent implements OnInit {
 
   public categoriaId : number = 0;
   public cantidadPublicaciones : number = 0;
-
-
-
 
 
   ngOnInit(): void { }
@@ -70,9 +69,24 @@ export class CheckoutComponent implements OnInit {
     console.log(datos);
 
     // envio los datos al servicio
-    this.checkoutService.postCheckout(datos).subscribe((data: any) => {
-      console.log(data);
+    this.checkoutService.postCheckout(datos).subscribe((resp: any) => {
+      console.log(resp);
+
+    }, (err: any) => {
+      console.log(err);
+      if (err.status == 201) {
+        alert("Compra realizada con éxito!");
+        this.router.navigate(['']);
+
+      } else if (err.status == 500) {
+        alert("Verifique los datos ingresados");
+      }
+
     });
 
-  }
-}
+
+
+
+  } // fin onSubmitForm
+
+} // fin clase CheckoutComponent
