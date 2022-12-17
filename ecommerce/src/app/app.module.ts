@@ -15,6 +15,7 @@ import { ErrorComponent } from './components/shared/error/error.component';
 import { HomeModule } from './components/home/home.module';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ShoppingCartHistoryComponent } from './components/shopping-cart-history/shopping-cart-history.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ShoppingCartHistoryComponent } from './components/shopping-cart-history
     ErrorComponent,
     SignUpComponent,
     ShoppingCartHistoryComponent,
+    OrderDetailComponent,
   ],
   imports: [
     BrowserModule,
