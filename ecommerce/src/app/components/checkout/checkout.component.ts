@@ -75,8 +75,9 @@ export class CheckoutComponent implements OnInit {
     }, (err: any) => {
       console.log(err);
       if (err.status == 201) {
+        this.cartService.cartItemList = [];
         alert("Compra realizada con éxito!");
-        this.router.navigate(['']);
+        this.router.navigate(['compras']);
 
       } else if (err.status == 500) {
         alert("Verifique los datos ingresados");
