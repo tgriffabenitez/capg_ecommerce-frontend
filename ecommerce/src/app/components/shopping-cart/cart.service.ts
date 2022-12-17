@@ -8,38 +8,37 @@ import { ProductService } from '../home/product/product.service';
 })
 export class CartService {
 
-  public cartItemList : any = [];
-  public productList : any = new BehaviorSubject<any>([]);
+  public cartItemList: any = [];
+  public productList: any = new BehaviorSubject<any>([]);
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService: ProductService) { }
 
   getProducts() {
     return this.productList.asObservable();
   }
 
-  setProduct(product : any) {
+  setProduct(product: any) {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
 
-  addProductToCart(product : any) {
+  addProductToCart(product: any) {
     // check if item is from the same store
-    if(this.cartItemList.length > 0) {
-      if(this.cartItemList[0].vendedor.tienda !== product.vendedor.tienda) {
+    if (this.cartItemList.length > 0) {
+      if (this.cartItemList[0].vendedor.tienda !== product.vendedor.tienda) {
         alert("No se puede agregar un producto de otra tienda");
         return;
       }
     }
 
-
     // verifico si el producto ya existe en el carrito
-    let item = this.cartItemList.find((a : any) => a.id === product.id);
+    let item = this.cartItemList.find((a: any) => a.id === product.id);
 
     // si no existe lo agrego al carrito
-    if(!item) {
-      this.cartItemList.push({...product, cantidad: 1, total: product.precio});
+    if (!item) {
+      this.cartItemList.push({ ...product, cantidad: 1, total: product.precio });
 
-    // si existe, solo incremento la cantidad
+      // si existe, solo incremento la cantidad
     } else {
       item.cantidad += 1;
       item.total = item.cantidad * item.price;
@@ -49,21 +48,21 @@ export class CartService {
     this.productList.next(this.cartItemList);
   }
 
-  getTotalPrice() : number {
+  getTotalPrice(): number {
     // magia de stackOverflow
-    return this.cartItemList.reduce((a : any, b : any) => a + (b.precio * b.cantidad), 0);
+    return this.cartItemList.reduce((a: any, b: any) => a + (b.precio * b.cantidad), 0);
   }
 
-  removeCartItem(product : any) {
+  removeCartItem(product: any) {
     // verifico si la cantidad es mayor a 1
     // si es mayor a 1, decremento la cantidad
-    if(product.cantidad > 1) {
+    if (product.cantidad > 1) {
       product.cantidad -= 1;
       product.total = product.cantidad * product.price;
 
-    // si es igual a 1, elimino el producto del carrito
+      // si es igual a 1, elimino el producto del carrito
     } else {
-      this.cartItemList = this.cartItemList.filter((a : any) => a.id !== product.id);
+      this.cartItemList = this.cartItemList.filter((a: any) => a.id !== product.id);
     }
 
     this.productList.next(this.cartItemList);
