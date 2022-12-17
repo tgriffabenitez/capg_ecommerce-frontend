@@ -19,7 +19,7 @@ export class CheckoutComponent implements OnInit {
   public direccionNumero: string | undefined;
   public direccionPiso: string | undefined;
   public direccionDepto: string | undefined;
-  public metodoDePago: string = "EFECTIVO";
+  public metodoDePago: string = "DEBITO_VISA";
   public publicaciones: any = [];
   public publicacionesIdCantidad : any = [];
 
