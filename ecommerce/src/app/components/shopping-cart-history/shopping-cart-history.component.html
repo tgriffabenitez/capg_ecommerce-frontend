@@ -3,25 +3,36 @@
 		<h1>Mis compras</h1>
 	</div>
 
-	<li class="list-group-item">
-		<div class="cart">
-      <div class="fecha-compra" *ngFor="let order of orders">
-        <h3>Fecha de compra: {{order.fechaDeCompra}}</h3>
-      </div>
-      <ul class="cartWrap">
-          <li class="items odd">
-              <div class="infoWrap">
-                  <div class="cartSection" *ngFor="let product of orderProducts">
-                      <img src={{product.publicacion.imagenPublicacion}} alt="" class="itemImg" style="height: 100px;"/>
-                      <h3>{{product.publicacion.titulo}}</h3>
-                      <p class="itemNumber">{{product.publicacion.descripcion}}</p><br>
-                      <p>{{product.cantidad}} x {{product.publicacion.precio | currency:"ARS":"$"}}</p>
-                  </div>
-              </div>
-
-          </li>
-      </ul>
+  <div class="fecha-compra" *ngFor="let order of orders">
+    <div class="fecha-compra">
+      {{order.fechaDeCompra}}
     </div>
-	</li>
-</div>
+    <li class="list-group-item" *ngFor="let product of orderProducts">
+      <div class="cart">
+        <ul class="cartWrap">
+            <li class="items odd">
+                <div class="infoWrap">
+                    <div class="cartSection">
+                        <img src={{product.publicacion.imagenPublicacion}} alt="" class="itemImg" style="height: 100px;"/>
+                        <h3>{{product.publicacion.titulo}}</h3>
+                        <p class="itemNumber">{{product.publicacion.descripcion}}</p><br>
+                        <p>{{product.cantidad}} x {{product.publicacion.precio | currency:"ARS":"$"}}</p>
+                    </div>
+
+                    <div class="prodTotal cartSection">
+                        <p>{{product.subtotal | currency:"ARS":"$"}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+  </div>
+
+    <div class="subtotal cf" *ngFor="let order of orders">
+      <ul>
+        <li class="totalRow final"><span class="label">Total: {{order.precioTotal | currency:"ARS":"$"}}</span><span class="value"></span></li>
+        </ul>
+    </div>
+  </div>
+
 
