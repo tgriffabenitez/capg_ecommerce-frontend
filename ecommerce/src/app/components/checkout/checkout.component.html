@@ -2,7 +2,7 @@
     <div class="row g">
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Direccion de facturacion</h4>
-            <form #billingAddress="ngForm" class="needs-validation" name="billingAddress" novalidate (ngSubmit)="onSubmitForm(billingAddress.value)">
+            <form class="needs-validation" name="billingAddress" novalidate>
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="nombre" class="form-label">nombre</label>
@@ -65,12 +65,8 @@
 
                 <h4 class="mb-3">Metodo de pago</h4>
                 <div class="my-3">
-                  <select name="metodoDePago" class="form-select" aria-label="Default select example">
-                    <selected [(ngModel)]="metodoDePago" >Seleccione la tarjeta</selected>
-                    <option value="CREDITO_VISA">Tarjeta credito visa</option>
-                    <option value="CREDITO_MASTERCARD">Tarjeta credito mastercard</option>
-                    <option value="DEBITO_VISA">Tarjeta debito visa</option>
-                    <option value="DEBITO_MASTERCARD">Tarjeta debito mastercard</option>
+                  <select name="metodoDePago" class="form-select" aria-label="Default select example" [(ngModel)]="formaDePago" >
+                    <option *ngFor="let seleccion of seleccionPago" value="{{seleccion.id}}">{{seleccion.formaDePago}}</option>
                   </select>
                 </div>
 
@@ -111,7 +107,7 @@
 
                 <hr class="my-4">
 
-                <button class="w-100 btn btn-primary btn-lg" name="botonEnviar" type="submit">Pagar</button>
+                <button class="w-100 btn btn-primary btn-lg" name="botonEnviar" type="submit" (click)="finalizarCompra()">Pagar</button>
             </form>
         </div>
     </div>

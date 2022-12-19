@@ -12,7 +12,19 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private checkoutService:CheckoutService, private cartService:CartService, private router:Router) { }
 
+  // datos que envio al backend
   public clienteId = localStorage.getItem("clienteId");
+  public formaDePago: number | undefined;
+  public publicaciones: any = [];
+
+  // array que contiene el id de cada publicacion y la cantidad de publicaciones
+  public publicacionesIdCantidad : any = [];
+
+  // datos del vendedor
+  public seleccionPago: any = [];
+
+  // datos de relleno. No los voy a implementar. Servirian
+  // en caso que quiera que el usuario se registre en mi pagina
   public nombre : string | undefined;
   public apellido : string | undefined;
   public email : string | undefined;
@@ -21,23 +33,14 @@ export class CheckoutComponent implements OnInit {
   public direccionNumero: string | undefined;
   public direccionPiso: string | undefined;
   public direccionDepto: string | undefined;
-  public metodoDePago: string = "DEBITO_VISA";
-  public publicaciones: any = [];
-  public publicacionesIdCantidad : any = [];
-
   public nombreTarjeta: string | undefined;
   public numeroTarjeta: string | undefined;
   public codigoSeguridad: string | undefined;
   public fechaVencimiento: string | undefined;
 
-  public categoriaId : number = 0;
-  public cantidadPublicaciones : number = 0;
+  ngOnInit(): void {
 
-
-  ngOnInit(): void { }
-
-  public onSubmitForm(data: any) {
-
+    this.publicaciones = this.cartService.cartItemList;
     // valido que el usuario este logueado
     if (this.clienteId == null) {
       alert("Debe iniciar sesión para poder realizar la compra.");
@@ -46,59 +49,46 @@ export class CheckoutComponent implements OnInit {
     }
 
     // verifico que al menos haya una publicacion en el carrito
-    this.publicaciones = this.cartService.cartItemList;
     if (this.publicaciones.length == 0) {
       alert("No hay publicaciones en el carrito. Agregue publicaciones para poder realizar la compra.");
       this.router.navigate(['']);
       return;
     }
 
+    // Obtengo el id del vendedor
+    let vendedorId = this.publicaciones[0].vendedor.id;
+
+    // Obtengo los metodos de pago del vendedor
+    this.checkoutService.metodosDePagoDelVendedor(vendedorId).subscribe((resp: any) => {
+      this.seleccionPago = resp;
+    });
+
     // guardo el id y la cantidad de cada publicacion en un array
     this.publicaciones.forEach((publicacion: any) => {
       this.publicacionesIdCantidad.push({publicacionId: publicacion.id, cantidad: publicacion.cantidad});
     });
+  }
 
+  public finalizarCompra(){
 
-    console.log(this.publicacionesIdCantidad);
-
-    // guardo los datos del formulario en un objeto
-    let datos = {
+      let datos = {
       clienteId: this.clienteId,
-      nombre: this.nombre,
-      apellido: this.apellido,
-      email: this.email,
-      telefono: this.telefono,
-      direccionCalle: this.direccionCalle,
-      direccionNumero: this.direccionNumero,
-      direccionPiso: this.direccionPiso,
-      direccionDepto: this.direccionDepto,
-      metodoDePago: this.metodoDePago,
+      metodoDePago: this.formaDePago,
       publicaciones: this.publicacionesIdCantidad,
-      nombreTarjeta: this.nombreTarjeta,
-      numeroTarjeta: this.numeroTarjeta,
-      codigoSeguridad: this.codigoSeguridad,
-      fechaVencimiento: this.fechaVencimiento,
     }
 
-    console.log(datos);
+    // Mando los datos al servidor y verifico errores
+    this.checkoutService.postCheckout(datos).subscribe((resp: any) => { }, (err: any) => {
 
-    // envio los datos al servicio
-    this.checkoutService.postCheckout(datos).subscribe((resp: any) => {
-      console.log(resp);
-
-    }, (err: any) => {
-      console.log(err);
       if (err.status == 201) {
         this.cartService.removeAllCart();
         alert("Compra realizada con éxito!");
         this.router.navigate(['order-details']);
 
-      } else if (err.status == 500) {
+      } else {
         alert("Verifique los datos ingresados");
       }
 
     });
-
-  } // fin onSubmitForm
-
+  }
 } // fin clase CheckoutComponent
