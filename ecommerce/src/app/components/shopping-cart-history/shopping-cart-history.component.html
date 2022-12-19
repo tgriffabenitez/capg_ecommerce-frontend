@@ -1,38 +1,33 @@
-<div class="wrap cf">
-	<div class="heading cf">
-		<h1>Mis compras</h1>
-	</div>
-
-  <div class="fecha-compra" *ngFor="let order of orders">
-    <div class="fecha-compra">
-      {{order.fechaDeCompra}}
-    </div>
-    <li class="list-group-item" *ngFor="let product of orderProducts">
-      <div class="cart">
-        <ul class="cartWrap">
-            <li class="items odd">
-                <div class="infoWrap">
-                    <div class="cartSection">
-                        <img src={{product.publicacion.imagenPublicacion}} alt="" class="itemImg" style="height: 100px;"/>
-                        <h3>{{product.publicacion.titulo}}</h3>
-                        <p class="itemNumber">{{product.publicacion.descripcion}}</p><br>
-                        <p>{{product.cantidad}} x {{product.publicacion.precio | currency:"ARS":"$"}}</p>
-                    </div>
-
-                    <div class="prodTotal cartSection">
-                        <p>{{product.subtotal | currency:"ARS":"$"}}</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
+<div class="container">
+  <div class="usuario">
+    <h4>Compras de {{customerName}}</h4>
+  </div>
+  <hr>
+  <div class="card-table" *ngFor="let order of orders; let i=index">
+    <div class="cart-product">
+      <table class="table table-response">
+        <thead class="t-head">
+          <tr>
+            <th>Fecha compra</th>
+            <th>Producto</th>
+            <th>Descripcion</th>
+            <th>Cantidad</th>
+            <th>Precio unitario</th>
+            <th>SubTotal</th>
+          </tr>
+        </thead>
+        <tbody class="t-body" *ngFor="let product of order.carrito.publicacionesPorCarrito">
+          <tr>
+            <td>{{order.fechaDeCompra}}</td>
+            <td>{{product.publicacion.titulo}}</td>
+            <td>{{product.publicacion.descripcion}}</td>
+            <td>{{product.cantidad}}</td>
+            <td>{{product.precioUnitario | currency:"ARS":"$"}}</td>
+            <td>{{(product.cantidad * product.precioUnitario) | currency:"ARS":"$"}}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
-    <div class="subtotal cf" *ngFor="let order of orders">
-      <ul>
-        <li class="totalRow final"><span class="label">Total: {{order.precioTotal | currency:"ARS":"$"}}</span><span class="value"></span></li>
-        </ul>
-    </div>
-  </div>
-
-
+</div>

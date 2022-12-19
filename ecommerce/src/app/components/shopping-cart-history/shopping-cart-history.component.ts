@@ -13,6 +13,7 @@ export class ShoppingCartHistoryComponent implements OnInit{
   public orders : any = [];
   public orderProducts : any = [];
   public customerId = localStorage.getItem('clienteId');
+  public customerName = localStorage.getItem('clienteNombre');
 
   constructor(private shoppingCartHistoryService:ShoppingCartHistoryService) { }
 
@@ -23,14 +24,8 @@ export class ShoppingCartHistoryComponent implements OnInit{
     this.shoppingCartHistoryService.getOrderdByCustomerId(this.customerId).subscribe((data:any) => {
       this.orders = data;
       console.log(this.orders);
-
-      // obtengo los productos de cada compra
-      this.orders.forEach((order:any) => {
-        this.shoppingCartHistoryService.getOrderedProductsByOrderId(order.id).subscribe((data:any) => {
-          this.orderProducts = data;
-          console.log(this.orderProducts);
-        });
-      });
     });
+
+
   }
 }

@@ -23,6 +23,7 @@ export class LoginComponent {
 
       // guardo el id del cliente en el localStorage
       localStorage.setItem("clienteId", res.id);
+      localStorage.setItem("clienteNombre", res.nombre);
 
       alert("Bienvenido!");
       this.router.navigate(['']);

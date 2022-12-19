@@ -16,5 +16,4 @@ export class ShoppingCartHistoryService {
   getOrderedProductsByOrderId(orderId:any){
     return this.http.get('http://localhost:8080/compras/'+orderId);
   }
-
 }
