@@ -53,7 +53,7 @@ export class CheckoutComponent implements OnInit {
       nombre: this.nombre,
       apellido: this.apellido,
       email: this.email,
-      "telefono": "1136600226",
+      telefono: this.telefono,
       direccionCalle: this.direccionCalle,
       direccionNumero: this.direccionNumero,
       direccionPiso: this.direccionPiso,
