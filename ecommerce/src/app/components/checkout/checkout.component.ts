@@ -38,7 +38,14 @@ export class CheckoutComponent implements OnInit {
 
   public onSubmitForm(data: any) {
 
-    // guardo el id y la cantidad de cada publicacion en un array
+    // valido que el usuario este logueado
+    if (this.clienteId == null) {
+      alert("Debe iniciar sesión para poder realizar la compra.");
+      this.router.navigate(['login']);
+      return;
+    }
+
+    // verifico que al menos haya una publicacion en el carrito
     this.publicaciones = this.cartService.cartItemList;
     if (this.publicaciones.length == 0) {
       alert("No hay publicaciones en el carrito. Agregue publicaciones para poder realizar la compra.");
@@ -46,6 +53,7 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
+    // guardo el id y la cantidad de cada publicacion en un array
     this.publicaciones.forEach((publicacion: any) => {
       this.publicacionesIdCantidad.push({publicacionId: publicacion.id, cantidad: publicacion.cantidad});
     });
@@ -90,9 +98,6 @@ export class CheckoutComponent implements OnInit {
       }
 
     });
-
-
-
 
   } // fin onSubmitForm
 
