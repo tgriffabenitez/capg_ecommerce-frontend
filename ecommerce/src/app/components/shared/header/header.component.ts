@@ -18,4 +18,10 @@ export class HeaderComponent {
       this.totalCartItem = data.reduce((a : any, b : any) => a + (b.cantidad), 0);
     });
   }
+
+  public closeSession() {
+    localStorage.clear();
+    window.location.reload();
+  }
+
 }
