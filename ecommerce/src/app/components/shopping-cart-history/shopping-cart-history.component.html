@@ -1,45 +1,27 @@
 <div class="wrap cf">
 	<div class="heading cf">
-		<h1>Mi carrito</h1>
-		<a routerLink="" class="continue">Continuar comprando</a>
+		<h1>Mis compras</h1>
 	</div>
 
 	<li class="list-group-item">
 		<div class="cart">
+      <div class="fecha-compra" *ngFor="let order of orders">
+        <h3>Fecha de compra: {{order.fechaDeCompra}}</h3>
+      </div>
       <ul class="cartWrap">
           <li class="items odd">
               <div class="infoWrap">
-
-                  <div class="cartSection">
-                      <img src="url" alt="" class="itemImg" style="height: 100px;"/>
-                      <h3>"titulo"</h3>
-                      <p class="itemNumber">cantidad</p><br>
-                      <p> cantidad x {{"precio "| currency:"ARS":"$"}}</p>
-                      <p class="stockStatus"> Stock</p>
+                  <div class="cartSection" *ngFor="let product of orderProducts">
+                      <img src={{product.publicacion.imagenPublicacion}} alt="" class="itemImg" style="height: 100px;"/>
+                      <h3>{{product.publicacion.titulo}}</h3>
+                      <p class="itemNumber">{{product.publicacion.descripcion}}</p><br>
+                      <p>{{product.cantidad}} x {{product.publicacion.precio | currency:"ARS":"$"}}</p>
                   </div>
-
-                  <div class="prodTotal cartSection">
-                      <p>{{"subtotal" | currency:"ARS":"$"}}</p>
-                  </div>
-
-                  <div class="cartSection removeWrap">
-                      <!-- <a href="#" class="remove">x</a> -->
-                      <button  type="button" class="btn btn-danger" >Eliminar</button>
-                  </div>
-
               </div>
+
           </li>
       </ul>
-  </div>
-
+    </div>
 	</li>
-
-	<div class="subtotal cf">
-		<ul>
-			<li class="totalRow final"><span class="label">Total</span><span class="value">{{"total" | currency:"ARS":"$"}}</span></li>
-			<li class="totalRow"><button type="submit" routerLink="/checkout" class="btn btn-checkout">Checkout</button></li>
-      <li class="totalRow"><button type="submit" class="btn btn-vaciar-carrito">Vaciar carrito</button></li>
-	  	</ul>
-	</div>
 </div>
 
