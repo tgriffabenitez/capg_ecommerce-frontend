@@ -21,9 +21,16 @@ export class LoginComponent {
     this.loginService.searchUser(this.inputEmail, this.inputPassword).subscribe((res : any) => {
       console.log(res);
 
-      // guardo el id del cliente en el localStorage
+      // guardo los datos del cliente en el localStorage
       localStorage.setItem("clienteId", res.id);
       localStorage.setItem("clienteNombre", res.nombre);
+      localStorage.setItem("clienteApellido", res.apellido);
+      localStorage.setItem("clienteEmail", res.email);
+      localStorage.setItem("clienteTelefono", res.telefono);
+      localStorage.setItem("direccionCalle", res.direccionCalle);
+      localStorage.setItem("direccionNumero", res.direccionNumero);
+      localStorage.setItem("direccionPiso", res.direccionPiso);
+
 
       alert("Bienvenido!");
       this.router.navigate(['']);
