@@ -40,6 +40,12 @@ export class CheckoutComponent implements OnInit {
 
     // guardo el id y la cantidad de cada publicacion en un array
     this.publicaciones = this.cartService.cartItemList;
+    if (this.publicaciones.length == 0) {
+      alert("No hay publicaciones en el carrito. Agregue publicaciones para poder realizar la compra.");
+      this.router.navigate(['']);
+      return;
+    }
+
     this.publicaciones.forEach((publicacion: any) => {
       this.publicacionesIdCantidad.push({publicacionId: publicacion.id, cantidad: publicacion.cantidad});
     });
