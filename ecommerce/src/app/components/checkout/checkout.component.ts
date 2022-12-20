@@ -23,8 +23,10 @@ export class CheckoutComponent implements OnInit {
   // datos del vendedor
   public seleccionPago: any = [];
 
-  // datos de relleno. No los voy a implementar. Servirian
-  // en caso que quiera que el usuario se registre en mi pagina
+  /**
+   * Datos de relleno. No los voy a implementar. Servirian en caso que
+   * quiera que el usuario cambie la direccion de envio o los datos de la tarjeta
+   */
   public nombre : string | undefined;
   public apellido : string | undefined;
   public email : string | undefined;
@@ -40,13 +42,14 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.publicaciones = this.cartService.cartItemList;
     // valido que el usuario este logueado
     if (this.clienteId == null) {
       alert("Debe iniciar sesión para poder realizar la compra.");
       this.router.navigate(['login']);
-      return;
     }
+
+    // obtengo las publicaciones que estan en el carrito
+    this.publicaciones = this.cartService.cartItemList;
 
     // verifico que al menos haya una publicacion en el carrito
     if (this.publicaciones.length == 0) {
@@ -55,10 +58,14 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
-    // Obtengo el id del vendedor
+    /**
+     * Obtengo el id del vendedor. Como todas las publicaciones
+     * son del mismo vendedor, solo obtengo el id del primer elemento
+     * del array
+     */
     let vendedorId = this.publicaciones[0].vendedor.id;
 
-    // Obtengo los metodos de pago del vendedor
+    // Con el id del vendedor, obtengo los metodos de pago que acepta
     this.checkoutService.metodosDePagoDelVendedor(vendedorId).subscribe((resp: any) => {
       this.seleccionPago = resp;
     });
@@ -67,20 +74,25 @@ export class CheckoutComponent implements OnInit {
     this.publicaciones.forEach((publicacion: any) => {
       this.publicacionesIdCantidad.push({publicacionId: publicacion.id, cantidad: publicacion.cantidad});
     });
-  }
+
+  } // fin ngOnInit
 
   public finalizarCompra(){
 
       let datos = {
-      clienteId: this.clienteId,
-      metodoDePago: this.formaDePago,
-      publicaciones: this.publicacionesIdCantidad,
+        clienteId: this.clienteId,
+        metodoDePago: this.formaDePago,
+        publicaciones: this.publicacionesIdCantidad,
     }
 
     // Mando los datos al servidor y verifico errores
     this.checkoutService.postCheckout(datos).subscribe((resp: any) => { }, (err: any) => {
 
       if (err.status == 201) {
+       /**
+        * si la compra se realizo con exito, vacio el carrito y
+        * redirecciono al usuario a la pagina de detalles de la compra
+        */
         this.cartService.removeAllCart();
         alert("Compra realizada con éxito!");
         this.router.navigate(['order-details']);
@@ -90,5 +102,7 @@ export class CheckoutComponent implements OnInit {
       }
 
     });
-  }
+
+  } // fin finalizarCompra
+
 } // fin clase CheckoutComponent
