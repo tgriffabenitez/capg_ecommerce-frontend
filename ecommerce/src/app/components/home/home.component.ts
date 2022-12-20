@@ -29,6 +29,7 @@ export class HomeComponent {
   public getAllProducts(): void {
     this.productService.getAllProducts().subscribe((data: any) => {
       this.products = data;
+      console.log(this.products);
     });
   }
 
