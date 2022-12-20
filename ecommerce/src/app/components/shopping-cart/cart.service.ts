@@ -23,7 +23,10 @@ export class CartService {
   }
 
   addProductToCart(product: any) {
-    // check if item is from the same store
+    /**
+     * verifico que el producto que se quiere agregar al carrito pertenezca
+     * a la misma tienda que los productos que ya estan en el carrito
+     */
     if (this.cartItemList.length > 0) {
       if (this.cartItemList[0].vendedor.tienda !== product.vendedor.tienda) {
         alert("No se puede agregar un producto de otra tienda");
@@ -38,11 +41,10 @@ export class CartService {
     if (!item) {
       this.cartItemList.push({ ...product, cantidad: 1, total: product.precio });
 
-      // si existe, solo incremento la cantidad
+      // si existe, solo incremento la cantidad y el subtotal
     } else {
       item.cantidad += 1;
       item.total = item.cantidad * item.price;
-      console.log(product.tienda);
     }
 
     this.productList.next(this.cartItemList);
@@ -54,8 +56,7 @@ export class CartService {
   }
 
   removeCartItem(product: any) {
-    // verifico si la cantidad es mayor a 1
-    // si es mayor a 1, decremento la cantidad
+    // si la cantidad es mayor a 1, solo decremento la cantidad y el subtotal
     if (product.cantidad > 1) {
       product.cantidad -= 1;
       product.total = product.cantidad * product.price;
