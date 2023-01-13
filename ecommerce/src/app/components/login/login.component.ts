@@ -18,7 +18,12 @@ export class LoginComponent {
     this.inputEmail = data.inputEmail;
     this.inputPassword = data.inputPassword;
 
-    this.loginService.searchUser(this.inputEmail, this.inputPassword).subscribe((res : any) => {
+    let userData = {
+      "email": this.inputEmail,
+      "contrasenia": this.inputPassword
+    }
+
+    this.loginService.searchUser(userData).subscribe((res : any) => {
       console.log(res);
 
       // guardo los datos del cliente en el localStorage
