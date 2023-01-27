@@ -10,12 +10,11 @@ export class CheckoutService {
 
   public postCheckout(data: any) {
     // envio los datos del formulario al backend
-    console.log("pepe");
     console.log(data);
     return this.http.post('http://localhost:8080/carrito', data);
   }
 
   public metodosDePagoDelVendedor(vendedorId: number) {
-    return this.http.get('http://localhost:8080/vendedores/metodos-de-pago/' + vendedorId);
+    return this.http.get('http://localhost:8080/vendedores/'+ vendedorId +'/metodos-de-pago/' );
   }
 }
