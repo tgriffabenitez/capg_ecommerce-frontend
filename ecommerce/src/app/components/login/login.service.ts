@@ -9,7 +9,7 @@ export class LoginService {
   constructor(private http : HttpClient) { }
 
   public searchUser(data : any){
-    return this.http.post("http://localhost:8080/cliente/login", data);
+    return this.http.post("http://localhost:8080/login", data);
   }
 
 
