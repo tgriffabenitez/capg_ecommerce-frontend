@@ -10,10 +10,10 @@ export class ShoppingCartHistoryService {
 
 
   getOrderdByCustomerId(customerId:any){
-    return this.http.get('http://localhost:8080/cliente/'+customerId+'/compras');
+    return this.http.get('http://localhost:8080/cliente/'+ customerId+'/compras');
   }
 
   getOrderedProductsByOrderId(orderId:any){
-    return this.http.get('http://localhost:8080/compras/'+orderId);
+    return this.http.get('http://localhost:8080/compra/'+ orderId);
   }
 }

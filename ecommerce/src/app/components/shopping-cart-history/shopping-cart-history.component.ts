@@ -23,7 +23,6 @@ export class ShoppingCartHistoryComponent implements OnInit{
     // obtengo todas las compras del cliente
     this.shoppingCartHistoryService.getOrderdByCustomerId(this.customerId).subscribe((data:any) => {
       this.orders = data;
-      console.log(this.orders);
     });
 
 

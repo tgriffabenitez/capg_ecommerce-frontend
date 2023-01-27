@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody class="t-body" >
-          <tr *ngFor="let product of order.carrito.publicacionesPorCarrito">
+          <tr *ngFor="let product of order.publicacionesPorCarrito">
             <td>{{order.fechaDeCompra | date:'medium'}}</td>
             <td>{{product.publicacion.titulo}}</td>
             <td>{{product.publicacion.descripcion}}</td>
